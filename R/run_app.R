@@ -6,31 +6,32 @@
 #' @examplesIf interactive()
 #' run_app()
 run_app <- function() {
-  link <- function(x) {
-    shiny::tags$a(href = sprintf("https://maurolepore.github.io/%s/", x) , x)
-  }
-
   app <- init(
-    data = teal_data(admiralverse = admiralapp::public),
+    data = teal_data(reference = admiralapp::public),
     modules = modules(
-      "Documantation" |> module(
+      # Example creating a module
+      "Reference" |> module(
         server = function(input, output, session, data) {
-          output$documentation <- renderDataTable({
-            DT::datatable(data()[["admiralverse"]], escape = FALSE)
+          output$ref <- DT::renderDT({
+            DT::datatable(data()[["reference"]], escape = FALSE)
           })
         },
         ui = function(id, ...) {
           ns <- shiny::NS(id)
-          shiny::dataTableOutput(ns("documentation"))
+          DT::DTOutput(ns("ref"))
         }
       ),
+      # Example reusing a module
       "Raw" |> teal::example_module()
     )
   ) |>
     modify_title("admiralverse") |>
-    modify_header(h3(link("admiralverse"))) |>
-    modify_footer(link("dverse"))
+    modify_header(tags$p("The toy ", maurolepore("admiralverse"))) |>
+    modify_footer(  tags$p("Created with love and ", maurolepore("dverse")))
 
   shiny::shinyApp(app$ui, app$server)
 }
 
+maurolepore <- function(x) {
+  tags$a(href = sprintf("https://maurolepore.github.io/%s/", x), x)
+}

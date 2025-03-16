@@ -7,6 +7,7 @@ NULL
 
 ## usethis namespace: start
 #' @importFrom shiny shinyApp
+#' @importFrom shiny tags
 #' @importFrom teal example_module
 #' @importFrom teal init
 #' @importFrom teal modify_footer
