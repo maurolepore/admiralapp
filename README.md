@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/maurolepore/admiralapp/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/maurolepore/admiralapp/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of admiralapp is to show a basic teal app.
