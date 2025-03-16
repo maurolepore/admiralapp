@@ -1,0 +1,24 @@
+Package: admiralapp
+Title: An App to Explore and Discover Documentation
+Version: 0.0.0.9000
+Authors@R: 
+    person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0002-1986-7988"))
+Description: An app to explore and discover documentation of the toy
+    admiralverse.
+License: MIT + file LICENSE
+Depends: 
+    R (>= 3.5)
+Imports: 
+    DT,
+    shiny,
+    teal,
+    teal.data
+Suggests: 
+    dplyr,
+    dverse,
+    pkgload
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
