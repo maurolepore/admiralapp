@@ -10,18 +10,7 @@ run_app <- function() {
     data = teal_data(reference = admiralapp::public),
     modules = modules(
       # Example creating a module
-      "Reference" |>
-        module(
-          server = function(input, output, session, data) {
-            output$ref <- DT::renderDT({
-              DT::datatable(data()[["reference"]], escape = FALSE)
-            })
-          },
-          ui = function(id, ...) {
-            ns <- shiny::NS(id)
-            DT::DTOutput(ns("ref"))
-          }
-        ),
+      "Reference" |> reference_data_table_module(),
       # Example reusing a module
       "Raw" |> teal::example_module()
     )
